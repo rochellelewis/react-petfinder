@@ -1,0 +1,31 @@
+{
+  "name": "react-petfinder",
+  "version": "1.0.0",
+  "description": "Simple React demo app",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
+    "format-check": "prettier --list-different \"src/**/*.{js,jsx,css,json}\"",
+    "lint": "eslint **/*.{js,jsx}",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlewis2892/react-petfinder.git"
+  },
+  "keywords": [],
+  "author": "Rochelle Lewis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rlewis2892/react-petfinder/issues"
+  },
+  "homepage": "https://github.com/rlewis2892/react-petfinder#readme",
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "parcel-bundler": "^1.11.0",
+    "prettier": "^1.16.4"
+  }
+}
