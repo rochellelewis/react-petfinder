@@ -2,7 +2,7 @@
   "name": "react-petfinder",
   "version": "1.0.0",
   "description": "Simple React demo app",
-  "main": "index.js",
+  "main": "src/App.js",
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "format-check": "prettier --list-different \"src/**/*.{js,jsx,css,json}\"",
@@ -16,7 +16,7 @@
   },
   "keywords": [],
   "author": "Rochelle Lewis",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/rlewis2892/react-petfinder/issues"
   },
