@@ -1,4 +1,3 @@
-//these components are akin to classes. This is a function component
 import React from "react";
 
 export const Pet = props => {
