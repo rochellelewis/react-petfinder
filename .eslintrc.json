@@ -1,6 +1,6 @@
 {
-  "extends" : [
-    "eslint:recommeded",
+  "extends": [
+    "eslint:recommended",
     "prettier",
     "prettier/react"
   ],
