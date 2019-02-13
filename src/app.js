@@ -1,3 +1,6 @@
+import React from "react";
+import {render} from 'react-dom';
+
 //these components are akin to classes. This is a function component
 const Pet = props => {
   return React.createElement("div", {}, [
@@ -48,4 +51,4 @@ class App extends React.Component {
 }*/
 
 //render code
-ReactDOM.render(React.createElement(App), document.getElementById("root"));
+render(React.createElement(App), document.getElementById("root"));
