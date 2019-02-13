@@ -1,14 +1,6 @@
 import React from "react";
 import {render} from 'react-dom';
-
-//these components are akin to classes. This is a function component
-const Pet = props => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, props.name),
-    React.createElement("h2", {}, props.animal),
-    React.createElement("h2", {}, props.breed)
-  ]);
-};
+import Pet from "./pet";
 
 // this is a class component
 class App extends React.Component {
