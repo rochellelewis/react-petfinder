@@ -8,11 +8,11 @@ const petfinder = pf({
 });
 
 class Details extends React.Component {
-	constructor (props) {
-		super(props);
 
-		this.state = {loading: true};
-	}
+	// we removed the constructor since babel will allow it
+	state = {
+		loading: true
+	};
 
 	componentDidMount() {
 		petfinder.pet.get({
