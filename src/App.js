@@ -69,6 +69,7 @@ class App extends React.Component {
               // output data on screen
               return (
                  <Pet
+                    key={pet.id}
                     animal={pet.animal}
                     name={pet.name}
                     breed={breed}
