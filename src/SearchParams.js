@@ -75,7 +75,8 @@ class SearchParams extends React.Component {
 						onChange={this.handleAnimalChange}
 						onBlur={this.handleAnimalChange}
 					>
-						<option />
+						<option value="">All Animals</option>
+
 						{
 							ANIMALS.map(animal => (
 								<option key={animal} value={animal}>{animal}</option>
@@ -92,7 +93,8 @@ class SearchParams extends React.Component {
 						onBlur={this.handleBreedChange}
 						disabled={this.state.breeds.length === 0}
 					>
-						<option />
+						<option value="">All Breeds</option>
+
 						{this.state.breeds.map(breed => (
 							<option key={breed} value={breed}>{breed}</option>
 						))}
