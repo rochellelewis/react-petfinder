@@ -72,11 +72,14 @@ class App extends React.Component {
 				<header>
 					<Link to={"/"}>Adopt Me!</Link>
 				</header>
-				<Router>
-					<Results path="/" />
-					<Details path="/details/:id" />
-					<SearchParams path="/search-params" />
-				</Router>
+				{/* Anything inside of Provider can access the context using the exported Consumer */}
+				<Provider value={this.state}>
+					<Router>
+						<Results path="/" />
+						<Details path="/details/:id" />
+						<SearchParams path="/search-params" />
+					</Router>
+				</Provider>
 			</div>
 		);
 	}
