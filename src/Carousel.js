@@ -12,7 +12,6 @@ class Carousel extends React.Component {
 		if (media && media.photos && media.photos.photo) {
 			photos = media.photos.photo.filter(photo => photo["@size"] === "pn");
 		}
-
 		return { photos };
 	}
 
@@ -31,9 +30,12 @@ class Carousel extends React.Component {
 	render() {
 		const { photos, active } = this.state;
 
+		// handle if no current active photo
+		const hero = photos[0] ? photos[active].value : "https://fillmurray.com/g/300/300";
+
 		return (
 			<div className="carousel">
-				<img src={photos[active].value} alt="primary animal" />
+				<img src={hero} alt="primary animal" />
 				<div className="carousel-smaller">
 					{photos.map((photo, index) => (
 						/* eslint-disable-next-line */
