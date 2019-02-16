@@ -21,6 +21,7 @@ class SearchParams extends React.Component {
 		})
 	};
 
+	// def use arrow fns w/ event handling! For optmization! (bind is too expensive!)
 	handleAnimalChange = event => {
 		this.setState({
 			animal: event.target.value,
