@@ -1,10 +1,10 @@
 import React from "react";
 
 /*
-* The problem that we're solving here using Context is
-* we need to read the location, animal and breed from
-* SearchParams page and use it to search on the results page.
-* */
+ * The problem that we're solving here using Context is
+ * we need to read the location, animal and breed from
+ * SearchParams page and use it to search on the results page.
+ * */
 
 // React will create a 2 new components for you: a provider and a consumer
 // provider will make data available, consumer will read it. regardless of distance.

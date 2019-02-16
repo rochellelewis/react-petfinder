@@ -1,6 +1,6 @@
 import React from "react";
 import pf from "petfinder-client";
-import {navigate} from "@reach/router";
+import { navigate } from "@reach/router";
 import Carousel from "./Carousel";
 
 const petfinder = pf({
@@ -9,54 +9,57 @@ const petfinder = pf({
 });
 
 class Details extends React.Component {
-
 	// we removed the constructor since babel will allow it
 	state = {
 		loading: true
 	};
 
 	componentDidMount() {
-		petfinder.pet.get({
-			output: "full",
-			id: this.props.id
+		petfinder.pet
+			.get({
+				output: "full",
+				id: this.props.id
+			})
+			.then(data => {
+				let breed;
+				const pet = data.petfinder.pet;
 
-		}).then(data => {
-			let breed;
-			const pet = data.petfinder.pet;
+				if (Array.isArray(pet.breeds.breed)) {
+					breed = pet.breeds.breed.join(", ");
+				} else {
+					breed = pet.breeds.breed;
+				}
 
-			if(Array.isArray(pet.breeds.breed)) {
-				breed = pet.breeds.breed.join(", ");
-			} else {
-				breed = pet.breeds.breed;
-			}
-
-			this.setState({
-				name: pet.name,
-				animal: pet.animal,
-				location: `${pet.contact.city}, ${pet.contact.state}`,
-				description: pet.description,
-				media: pet.media,
-				breed,
-				loading: false
+				this.setState({
+					name: pet.name,
+					animal: pet.animal,
+					location: `${pet.contact.city}, ${pet.contact.state}`,
+					description: pet.description,
+					media: pet.media,
+					breed,
+					loading: false
+				});
+			})
+			.catch(err => {
+				navigate("/");
 			});
-		}).catch(err => {
-			navigate("/");
-		});
 	}
 
 	render() {
-		if(this.state.loading) {
-			return <h1>Loading...</h1>
+		if (this.state.loading) {
+			return <h1>Loading...</h1>;
 		}
 
-		const {name, animal, breed, location, description, media} = this.state;
+		const { name, animal, breed, location, description, media } = this.state;
 
 		return (
 			<div className="details">
 				<Carousel media={media} />
 				<div>
 					<h1>{name}</h1>
-					<h2>{animal} - {breed} - {location}</h2>
+					<h2>
+						{animal} - {breed} - {location}
+					</h2>
 					<p>{description}</p>
 				</div>
 			</div>

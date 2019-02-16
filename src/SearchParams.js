@@ -5,7 +5,7 @@ class SearchParams extends React.Component {
 	render() {
 		return (
 			<div className="search-route">
-				<SearchBox/>
+				<SearchBox />
 			</div>
 		);
 	}

@@ -1,9 +1,8 @@
 import React from "react";
-import {ANIMALS} from "petfinder-client";
-import {Consumer} from "./SearchContext";
+import { ANIMALS } from "petfinder-client";
+import { Consumer } from "./SearchContext";
 
-class SearchBox extends React.Component {
-
+class Search extends React.Component {
 	render() {
 		return (
 			<Consumer>
@@ -29,11 +28,11 @@ class SearchBox extends React.Component {
 							>
 								<option value="">All Animals</option>
 
-								{
-									ANIMALS.map(animal => (
-										<option key={animal} value={animal}>{animal}</option>
-									))
-								}
+								{ANIMALS.map(animal => (
+									<option key={animal} value={animal}>
+										{animal}
+									</option>
+								))}
 							</select>
 						</label>
 						<label htmlFor="breed">
@@ -48,16 +47,18 @@ class SearchBox extends React.Component {
 								<option value="">All Breeds</option>
 
 								{context.breeds.map(breed => (
-									<option key={breed} value={breed}>{breed}</option>
+									<option key={breed} value={breed}>
+										{breed}
+									</option>
 								))}
 							</select>
 						</label>
 						<button>Submit</button>
 					</div>
-				)};
+				)}
 			</Consumer>
 		);
 	}
 }
 
-export default SearchBox;
+export default Search;
