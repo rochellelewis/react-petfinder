@@ -13,7 +13,7 @@ class Details extends React.Component {
 	// we removed the constructor since babel will allow it
 	state = {
 		loading: true,
-		showModal: true
+		showModal: false
 	};
 
 	toggleModal = () => {
