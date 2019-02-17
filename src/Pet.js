@@ -17,7 +17,7 @@ class Pet extends React.Component {
 			: "https://fillmurray.com/g/300/300";
 
 		return (
-			<Link to={`/details/${id}`} className="pet">
+			<Link to={`${process.env.PUBLIC_URL}/details/${id}`} className="pet">
 				<div className="image-container">
 					<img src={hero} alt={name} />
 				</div>

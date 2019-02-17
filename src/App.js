@@ -77,8 +77,8 @@ class App extends React.Component {
 		return (
 			<div>
 				<header>
-					<Link to={"/"}>Adopt Me!</Link>
-					<Link to={"/search-params"}>
+					<Link to={`${process.env.PUBLIC_URL}/`}>Adopt Me!</Link>
+					<Link to={`${process.env.PUBLIC_URL}/search-params`}>
 						<span aria-label="search">
 							<small>=^. .^=</small>
 						</span>
@@ -86,10 +86,10 @@ class App extends React.Component {
 				</header>
 				{/* Anything inside of Provider can access the context using the exported Consumer */}
 				<Provider value={this.state}>
-					<Router>
-						<Results path="/" />
-						<Details path="/details/:id" />
-						<SearchParams path="/search-params" />
+					<Router basename={"/~rlewis2892/react-petfinder/dist"}>
+						<Results path={`${process.env.PUBLIC_URL}/`} />
+						<Details path={`${process.env.PUBLIC_URL}/details/:id`} />
+						<SearchParams path={`${process.env.PUBLIC_URL}/search-params`} />
 					</Router>
 				</Provider>
 			</div>

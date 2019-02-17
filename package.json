@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/rlewis2892/react-petfinder/issues"
   },
-  "homepage": "https://github.com/rlewis2892/react-petfinder#readme",
+  "homepage": "https://rochelle-lewis.com/~rlewis2892/react-petfinder/dist/",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
