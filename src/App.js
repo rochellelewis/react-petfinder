@@ -79,7 +79,9 @@ class App extends React.Component {
 				<header>
 					<Link to={"/"}>Adopt Me!</Link>
 					<Link to={"/search-params"}>
-						<span aria-label="search"><small>=^. .^=</small></span>
+						<span aria-label="search">
+							<small>=^. .^=</small>
+						</span>
 					</Link>
 				</header>
 				{/* Anything inside of Provider can access the context using the exported Consumer */}

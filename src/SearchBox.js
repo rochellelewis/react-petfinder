@@ -3,7 +3,6 @@ import { ANIMALS } from "petfinder-client";
 import { Consumer } from "./SearchContext";
 
 class SearchBox extends React.Component {
-
 	handleFormSubmit = event => {
 		event.preventDefault();
 		this.props.search();

@@ -17,7 +17,7 @@ class Details extends React.Component {
 	};
 
 	toggleModal = () => {
-		this.setState({showModal: !this.state.showModal});
+		this.setState({ showModal: !this.state.showModal });
 	};
 
 	componentDidMount() {
@@ -56,19 +56,28 @@ class Details extends React.Component {
 			return <h1>Loading...</h1>;
 		}
 
-		const { name, animal, breed, location, description, media, showModal } = this.state;
+		const {
+			name,
+			animal,
+			breed,
+			location,
+			description,
+			media,
+			showModal
+		} = this.state;
 
 		/* setup modal markup */
 		let modal;
 		if (showModal) {
-			modal =
+			modal = (
 				<Modal>
 					<h1>Would you like to adopt {name}?</h1>
 					<div className="buttons">
 						<button onClick={this.toggleModal}>Yes</button>
 						<button onClick={this.toggleModal}>Hell Yes! :D</button>
 					</div>
-				</Modal>;
+				</Modal>
+			);
 		} else {
 			modal = null;
 		}

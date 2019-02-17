@@ -12,7 +12,9 @@ class Pet extends React.Component {
 		}
 
 		// handle void photos
-		const hero = photos[0] ? photos[0].value : "https://fillmurray.com/g/300/300";
+		const hero = photos[0]
+			? photos[0].value
+			: "https://fillmurray.com/g/300/300";
 
 		return (
 			<Link to={`/details/${id}`} className="pet">

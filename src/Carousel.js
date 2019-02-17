@@ -31,7 +31,9 @@ class Carousel extends React.Component {
 		const { photos, active } = this.state;
 
 		// handle if no current active photo
-		const hero = photos[0] ? photos[active].value : "https://fillmurray.com/g/300/300";
+		const hero = photos[0]
+			? photos[active].value
+			: "https://fillmurray.com/g/300/300";
 
 		return (
 			<div className="carousel">
