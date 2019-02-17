@@ -73,11 +73,15 @@ class Details extends React.Component {
 			modal = null;
 		}
 
+		/* this console logs the h1 element for ref example. see line 84 */
+		console.log(this.myH1);
+
 		return (
 			<div className="details">
 				<Carousel media={media} />
 				<div>
-					<h1>{name}</h1>
+					{/* see line 84 for an example of ref usage */}
+					<h1 ref={el => (this.myH1 = el)}>{name}</h1>
 					<h2>
 						{animal} - {breed} - {location}
 					</h2>
