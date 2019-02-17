@@ -5,7 +5,7 @@ import { navigate } from "@reach/router";
 class SearchParams extends React.Component {
 	// navigate to results view on submit, /search-params route
 	handleSearchSubmit() {
-		navigate("/");
+		navigate(`${process.env.PUBLIC_URL}/`);
 	}
 
 	render() {
