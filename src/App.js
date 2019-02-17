@@ -5,7 +5,7 @@ import pf from "petfinder-client";
 import Results from "./Results";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
-import Navbar from "./Navbar";
+import NavBar from "./NavBar";
 import { Provider } from "./SearchContext";
 
 const petfinder = pf({
@@ -77,7 +77,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<Navbar />
+				<NavBar />
 				{/* Anything inside of Provider can access the context using the exported Consumer */}
 				<Provider value={this.state}>
 					<Router>

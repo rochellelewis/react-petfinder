@@ -10,15 +10,24 @@ const Container = styled("header")`
 	z-index: 10;
 `;
 
-const Navbar = () => (
+const NavLink = styled(Link)`
+	&:hover {
+		text-decoration: underline;
+	}
+	span small {
+		color: white !important;
+	}
+`;
+
+const NavBar = () => (
 	<Container>
-		<Link to={"/"}>Adopt Me!</Link>
-		<Link to={"/search-params"}>
+		<NavLink to={"/"}>Adopt Me!</NavLink>
+		<NavLink to={"/search-params"}>
 			<span aria-label="search">
 				<small>=^. .^=</small>
 			</span>
-		</Link>
+		</NavLink>
 	</Container>
 );
 
-export default Navbar;
+export default NavBar;
