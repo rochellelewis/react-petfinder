@@ -1,10 +1,11 @@
 import React from "react";
 import { render } from "react-dom";
-import { Router, Link } from "@reach/router";
+import { Router } from "@reach/router";
 import pf from "petfinder-client";
 import Results from "./Results";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
+import Navbar from "./Navbar";
 import { Provider } from "./SearchContext";
 
 const petfinder = pf({
@@ -76,14 +77,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<header>
-					<Link to={"/"}>Adopt Me!</Link>
-					<Link to={"/search-params"}>
-						<span aria-label="search">
-							<small>=^. .^=</small>
-						</span>
-					</Link>
-				</header>
+				<Navbar />
 				{/* Anything inside of Provider can access the context using the exported Consumer */}
 				<Provider value={this.state}>
 					<Router>
