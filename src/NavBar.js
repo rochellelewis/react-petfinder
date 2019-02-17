@@ -1,7 +1,22 @@
 import React from "react";
 import {Link} from "@reach/router";
 import styled from "@emotion/styled";
+import {keyframes} from "@emotion/core";
 import colors from "./colors";
+
+const Spin = keyframes`
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+`;
+
+const SearchLink = styled("span")`
+	display: inline-block;
+	animation: 5s ${Spin} linear infinite;
+`;
 
 const Container = styled("header")`
 	background-color: ${colors.primary};
@@ -23,9 +38,9 @@ const NavBar = () => (
 	<Container>
 		<NavLink to={"/"}>Adopt Me!</NavLink>
 		<NavLink to={"/search-params"}>
-			<span aria-label="search">
+			<SearchLink aria-label="search">
 				<small>=^. .^=</small>
-			</span>
+			</SearchLink>
 		</NavLink>
 	</Container>
 );
