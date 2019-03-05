@@ -8,6 +8,9 @@ import SearchParams from "./SearchParams";
 import NavBar from "./NavBar";
 import { Provider } from "./SearchContext";
 
+import {Provider as ReduxProvider} from "react-redux";
+import store from "./store";
+
 const petfinder = pf({
 	key: process.env.API_KEY,
 	secret: process.env.API_SECRET
@@ -19,23 +22,14 @@ class App extends React.Component {
 		super(props);
 
 		this.state = {
-			location: "Albuquerque, NM",
 			animal: "",
 			breed: "",
 			breeds: [],
 			handleAnimalChange: this.handleAnimalChange,
 			handleBreedChange: this.handleBreedChange,
-			handleLocationChange: this.handleLocationChange,
 			getBreeds: this.getBreeds
 		};
 	}
-
-	// handles input change event - data coming in from search field
-	handleLocationChange = event => {
-		this.setState({
-			location: event.target.value
-		});
-	};
 
 	// def use arrow fns w/ event handling! For optmization! (bind is too expensive!)
 	handleAnimalChange = event => {
@@ -78,14 +72,16 @@ class App extends React.Component {
 		return (
 			<div>
 				<NavBar />
-				{/* Anything inside of Provider can access the context using the exported Consumer */}
-				<Provider value={this.state}>
-					<Router>
-						<Results path="/" />
-						<Details path="/details/:id" />
-						<SearchParams path="/search-params" />
-					</Router>
-				</Provider>
+				<ReduxProvider store={store}>
+					{/* Anything inside of Provider can access the context using the exported Consumer */}
+					<Provider value={this.state}>
+						<Router>
+							<Results path="/" />
+							<Details path="/details/:id" />
+							<SearchParams path="/search-params" />
+						</Router>
+					</Provider>
+				</ReduxProvider>
 			</div>
 		);
 	}

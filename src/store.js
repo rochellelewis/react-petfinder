@@ -8,8 +8,8 @@ const store = createStore(reducer, compose(
 
 	//this is just boilerplate pulled from the redux docs
 	typeof window === "object" &&
-	typeof window.devToolsExtension !== "undefined"
-		? window.devToolsExtension()
+	typeof window.__REDUX_DEVTOOLS_EXTENSION__ !== "undefined"
+		? window.__REDUX_DEVTOOLS_EXTENSION__()
 		: f => f
 	)
 );

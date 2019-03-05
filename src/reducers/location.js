@@ -5,12 +5,4 @@ export default function locationReducer(state = 'Albuquerque, NM', action) {
 	} else {
 		return state;
 	}
-
 }
-
-//A sample test for this reducer
-/*
-test("locationReducer", () => {
-	expect(locationReducer("Albuquerque, NM", {type: "SET_LOCATION", payload: "San Francisco, CA"})).toBe("San Francisco");
-});
-*/
