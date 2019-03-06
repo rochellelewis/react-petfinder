@@ -3,4 +3,4 @@ export default {
 	secondary: "#f2af29",
 	dark: "#333",
 	light: "#fff"
-}
+};

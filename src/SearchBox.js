@@ -1,6 +1,6 @@
 import React from "react";
 import { ANIMALS } from "petfinder-client";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import getBreeds from "./actionCreators/getBreeds";
 import changeBreed from "./actionCreators/changeBreed";
 import changeAnimal from "./actionCreators/changeAnimal";
@@ -67,14 +67,14 @@ class SearchBox extends React.Component {
 	}
 }
 
-const mapStateToProps = ({breed, breeds, animal, location}) => ({
+const mapStateToProps = ({ breed, breeds, animal, location }) => ({
 	breed,
 	breeds,
 	animal,
 	location
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
 	handleAnimalChange(event) {
 		dispatch(changeAnimal(event.target.value));
 		dispatch(getBreeds());
@@ -87,4 +87,7 @@ const mapDispatchToProps = (dispatch) => ({
 	}
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBox);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(SearchBox);

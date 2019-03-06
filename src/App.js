@@ -1,22 +1,21 @@
 import React from "react";
 import { render } from "react-dom";
 import { Router } from "@reach/router";
-import Loadable from 'react-loadable';
+import Loadable from "react-loadable";
 import NavBar from "./NavBar";
 
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
 import store from "./store";
 
 //parcel will dynamically separate Details in to a separate bundle. just a test.
 const LoadableDetails = Loadable({
 	loader: () => import("./Details"),
 	loading() {
-		return <h1>loading split component...</h1>
+		return <h1>loading split component...</h1>;
 	}
 });
 
 class App extends React.Component {
-
 	render() {
 		return (
 			<div>

@@ -3,7 +3,7 @@ import pf from "petfinder-client";
 import Pet from "./Pet";
 import SearchBox from "./SearchBox";
 
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 const petfinder = pf({
 	key: process.env.API_KEY,
@@ -92,7 +92,7 @@ class Results extends React.Component {
 }
 
 // pass the state from Redux store into the props of the component.
-const mapStateToProps = ({location, breed, animal}) => ({
+const mapStateToProps = ({ location, breed, animal }) => ({
 	location,
 	animal,
 	breed
