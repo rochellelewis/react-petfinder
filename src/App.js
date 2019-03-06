@@ -1,13 +1,21 @@
 import React from "react";
 import { render } from "react-dom";
 import { Router } from "@reach/router";
+import Loadable from 'react-loadable';
 import Results from "./Results";
-import Details from "./Details";
 import SearchParams from "./SearchParams";
 import NavBar from "./NavBar";
 
 import {Provider} from "react-redux";
 import store from "./store";
+
+//parcel will dynamically separate Details in to a separate bundle
+const LoadableDetails = Loadable({
+	loader: () => import("./Details"),
+	loading() {
+		return <h1>loading split component...</h1>
+	}
+});
 
 class App extends React.Component {
 
@@ -19,7 +27,7 @@ class App extends React.Component {
 					{/* Anything inside of Provider can access the context using the exported Consumer */}
 					<Router>
 						<Results path="/" />
-						<Details path="/details/:id" />
+						<LoadableDetails path="/details/:id" />
 						<SearchParams path="/search-params" />
 					</Router>
 				</Provider>
