@@ -1,6 +1,8 @@
 # react-petfinder
 Simple React demo app 
 
+You're going to need Petfinder API keys: https://www.petfinder.com/developers/api-key
+
 This project utilizes the Parcel bundler, and it's pretty awesome. https://parceljs.org/ 
 
 After installing npm packages, run `npm run dev` to start local dev server at `localhost:1234`
