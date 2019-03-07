@@ -3,6 +3,8 @@ import { render } from "react-dom";
 import { Router } from "@reach/router";
 import Loadable from "react-loadable";
 import NavBar from "./NavBar";
+import Results from "./Results";
+import SearchParams from "./SearchParams";
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -23,8 +25,8 @@ class App extends React.Component {
 				<Provider store={store}>
 					{/* Anything inside of Provider can access the context using the exported Consumer */}
 					<Router>
-						<LoadableResults path="/" />
-						<Details path="/details/:id" />
+						<Results path="/" />
+						<LoadableDetails path="/details/:id" />
 						<SearchParams path="/search-params" />
 					</Router>
 				</Provider>
