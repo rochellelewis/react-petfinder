@@ -4,21 +4,22 @@ import { createPortal } from "react-dom";
 const modalRoot = document.getElementById("modal");
 
 class Modal extends React.Component {
-	constructor(props) {
-		super(props);
-		this.el = document.createElement("div");
-	}
+	private el = document.createElement("div");
 
-	componentDidMount() {
-		modalRoot.appendChild(this.el);
+	public componentDidMount() {
+		if(modalRoot) {
+			modalRoot.appendChild(this.el);
+		}
 	}
 
 	// if you don't do this you'll have memory leaks
-	componentWillUnmount() {
-		modalRoot.removeChild(this.el);
+	public componentWillUnmount() {
+		if(modalRoot) {
+			modalRoot.removeChild(this.el);
+		}
 	}
 
-	render() {
+	public render() {
 		return createPortal(this.props.children, this.el);
 	}
 }
