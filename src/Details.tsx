@@ -1,32 +1,44 @@
 import React from "react";
-import pf from "petfinder-client";
-import { navigate } from "@reach/router";
+import pf, { PetResponse, PetMedia } from "petfinder-client";
+import {navigate, RouteComponentProps} from "@reach/router";
 import Carousel from "./Carousel";
 import Modal from "./Modal";
 
+//type refinement required for ts
+if(!process.env.API_KEY || !process.env.API_SECRET) {
+	throw new Error("no api keys!");
+}
 const petfinder = pf({
 	key: process.env.API_KEY,
 	secret: process.env.API_SECRET
 });
 
-class Details extends React.Component {
+class Details extends React.Component<RouteComponentProps<{id: string}>> {
 	// we removed the constructor since babel will allow it
-	state = {
+	public state = {
 		loading: true,
 		showModal: false
 	};
 
-	toggleModal = () => {
+	public toggleModal = () => {
 		this.setState({ showModal: !this.state.showModal });
 	};
 
-	componentDidMount() {
+	public componentDidMount() {
+		if(!this.props.id) {
+			return;
+		}
+
 		petfinder.pet
 			.get({
 				output: "full",
 				id: this.props.id
 			})
 			.then(data => {
+				if(!data.petfinder.pet) {
+					navigate("/");
+					return;
+				}
 				let breed;
 				const pet = data.petfinder.pet;
 
@@ -51,7 +63,7 @@ class Details extends React.Component {
 			});
 	}
 
-	render() {
+	public render() {
 		if (this.state.loading) {
 			return <h1>Loading...</h1>;
 		}
