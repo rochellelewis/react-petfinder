@@ -3,6 +3,8 @@ Simple React demo app
 
 This project utilizes the Parcel bundler, and it's pretty awesome. https://parceljs.org/ 
 
+After installing npm packages, run `npm run dev` to start local dev server at `localhost:1234`
+
 Full demo project lesson notes here: https://btholt.github.io/complete-intro-to-react-v4/
 
 ## Debugging
