@@ -1,14 +1,23 @@
 import React from "react";
+import {PetMedia, PetPhoto} from "petfinder-client";
 
-class Carousel extends React.Component {
-	state = {
+interface Props {
+	media: PetMedia
+}
+
+interface State {
+	active: number,
+	photos: PetPhoto[]
+}
+class Carousel extends React.Component<Props, State> {
+	public state = {
 		photos: [],
 		active: 0
 	};
 
 	// this function is a React builtin
-	static getDerivedStateFromProps({ media }) {
-		let photos = [];
+	public static getDerivedStateFromProps({ media }: Props) {
+		let photos: PetPhoto = [];
 		if (media && media.photos && media.photos.photo) {
 			photos = media.photos.photo.filter(photo => photo["@size"] === "pn");
 		}
@@ -20,14 +29,20 @@ class Carousel extends React.Component {
 	 * handleIndexClick will only work here as an arrow fn - will not create a new scope!
 	 * arrow fn does not create a new context when it's called, reverts to the lexical scope it's in
 	 **/
-	handleIndexClick = event => {
-		this.setState({
-			// cast this string into a number - coercion
-			active: +event.target.dataset.index
-		});
+	public handleIndexClick = (event: React.MouseEvent<HTMLElement>) => {
+		if(!(event.target instanceof HTMLElement)) {
+			return;
+		}
+
+		if(event.target.dataset.index) {
+			this.setState({
+				// cast this string into a number - coercion
+				active: +event.target.dataset.index
+			});
+		}
 	};
 
-	render() {
+	public render() {
 		const { photos, active } = this.state;
 
 		// handle if no current active photo
@@ -39,7 +54,7 @@ class Carousel extends React.Component {
 			<div className="carousel">
 				<img src={hero} alt="primary animal" />
 				<div className="carousel-smaller">
-					{photos.map((photo, index) => (
+					{photos.map((photo: PetPhoto, index) => (
 						/* eslint-disable-next-line */
 						<img
 							onClick={this.handleIndexClick}
