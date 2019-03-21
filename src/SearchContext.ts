@@ -1,3 +1,4 @@
+/* tslint:disable no-empty */
 import React from "react";
 
 /*
@@ -12,10 +13,10 @@ const SearchContext = React.createContext({
 	location: "Albuquerque, NM",
 	animal: "",
 	breed: "",
-	breeds: [],
-	handleAnimalChange() {},
-	handleBreedChange() {},
-	handleLocationChange() {},
+	breeds: [] as string[],
+	handleAnimalChange(event: React.KeyboardEvent<HTMLInputElement>) {},
+	handleBreedChange(event: React.ChangeEvent<HTMLSelectElement>) {},
+	handleLocationChange(event: React.KeyboardEvent<HTMLInputElement>) {},
 	getBreeds() {}
 });
 
