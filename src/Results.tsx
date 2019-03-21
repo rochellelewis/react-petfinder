@@ -1,6 +1,6 @@
 import React from "react";
 import pf, { Pet as PetType } from "petfinder-client";
-import { RouteComponentType } from "@reach/router";
+import { RouteComponentType, RouteComponentProps } from "@reach/router";
 import Pet from "./Pet";
 import SearchBox from "./SearchBox";
 
@@ -31,7 +31,7 @@ interface State {
 class Results extends React.Component<Props, State> {
 	// calling the parent component's constructor - passed in props from Pet.
 	// this overrides the default constructor from the React.Component
-	constructor(props) {
+	constructor(props: Props) {
 		super(props);
 
 		//define initial state

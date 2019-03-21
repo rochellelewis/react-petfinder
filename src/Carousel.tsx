@@ -9,9 +9,10 @@ interface State {
 	active: number,
 	photos: PetPhoto[]
 }
+
 class Carousel extends React.Component<Props, State> {
 	public state = {
-		photos: [],
+		photos: [] as PetPhoto[],
 		active: 0
 	};
 
