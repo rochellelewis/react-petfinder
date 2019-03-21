@@ -1,17 +1,34 @@
 import React from "react";
-import pf from "petfinder-client";
+import pf, { Pet as PetType } from "petfinder-client";
+import { RouteComponentType } from "@reach/router";
 import Pet from "./Pet";
 import SearchBox from "./SearchBox";
 
 import { connect } from "react-redux";
+
+if(!process.env.API_KEY || !process.env.API_SECRET) {
+	throw new Error("no api keys!");
+}
 
 const petfinder = pf({
 	key: process.env.API_KEY,
 	secret: process.env.API_SECRET
 });
 
+interface Props {
+	searchParams: {
+		location: string,
+		animal: string,
+		breed: string
+	}
+}
+
+interface State {
+	pets: PetType[]
+}
+
 // this is a class component
-class Results extends React.Component {
+class Results extends React.Component<Props, State> {
 	// calling the parent component's constructor - passed in props from Pet.
 	// this overrides the default constructor from the React.Component
 	constructor(props) {
@@ -25,11 +42,11 @@ class Results extends React.Component {
 
 	// this is a lifecycle method. renders to the DOM first,
 	// then calls this method after the DOM mounted. called once per component
-	componentDidMount() {
+	public componentDidMount() {
 		this.search();
 	}
 
-	search = () => {
+	public search = () => {
 		petfinder.pet
 			.find({
 				output: "full",
@@ -38,7 +55,7 @@ class Results extends React.Component {
 				breed: this.props.breed
 			})
 			.then(data => {
-				let pets;
+				let pets: PetType[];
 
 				// check if data is there
 				if (data.petfinder.pets && data.petfinder.pets.pet) {
@@ -58,7 +75,7 @@ class Results extends React.Component {
 			});
 	};
 
-	render() {
+	public render() {
 		//JSX version React.createElement
 		return (
 			<div className="search">
