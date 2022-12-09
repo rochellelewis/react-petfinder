@@ -55,7 +55,7 @@
     "@emotion/styled": "^10.0.5",
     "@reach/router": "^1.2.1",
     "babel-cli": "^6.26.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "petfinder-client": "1.0.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
